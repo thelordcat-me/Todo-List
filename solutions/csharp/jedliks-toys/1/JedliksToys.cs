@@ -1,0 +1,24 @@
+class RemoteControlCar
+{
+    public int TotalDistance = 0;
+    public int Battery = 100;
+    public static RemoteControlCar Buy()
+    {
+        return new RemoteControlCar();
+    }
+
+    public string DistanceDisplay() => $"Driven {TotalDistance} meters";
+    public string BatteryDisplay() => Battery switch {
+            >0 => $"Battery at {Battery}%",
+            _ => "Battery empty"
+            };
+
+
+    public void Drive()
+    {
+        if(Battery > 0){        
+            TotalDistance += 20;
+            Battery -= 1;
+        }
+    }
+}
